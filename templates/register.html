@@ -5,25 +5,79 @@
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4"> Join Today</legend>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     {{ form.username.label(class="form-control-label") }}
-                    {{ form.username(class="form-control form-control-lg") }}
+
+                    {% if form.username.errors %}
+                    <!-- if form has errors, print out form field on line directly below and then print
+                        each error using a for loop
+                     -->
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                    <!-- display regular form input -->
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     {{ form.email.label(class="form-control-label") }}
-                    {{ form.email(class="form-control form-control-lg") }}
+                    {% if form.email.errors %}
+                    <!-- if form has errors, print out form field on line directly below and then print
+                        each error using a for loop
+                     -->
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                    <!-- display regular form input -->
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     {{ form.password.label(class="form-control-label") }}
-                    {{ form.password(class="form-control form-control-lg") }}
+                    {% if form.password.errors %}
+                    <!-- if form has errors, print out form field on line directly below and then print
+                        each error using a for loop
+                     -->
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                    <!-- display regular form input -->
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     {{ form.confirm_password.label(class="form-control-label") }}
-                    {{ form.confirm_password(class="form-control form-control-lg") }}
+                    {% if form.confirm_password.errors %}
+                    <!-- if form has errors, print out form field on line directly below and then print
+                        each error using a for loop
+                     -->
+                        {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                <span> {{ error }} </span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                    <!-- display regular form input -->
+                        {{ form.confirm_password(class="form-control form-control-lg") }}
+                    {% endif %}
                 </div>
             </fieldset>
-            <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+            <div class="form-group mt-3 pb-3 d-flex justify-content-end">
+                {{ form.submit(class="btn btn-primary btn-block btn-md ") }}
             </div>
         </form>
     </div>
